@@ -31,6 +31,21 @@ class singlyLinkedList:
                 t1.next = temp
             t1 = t1.next
 
+    def deletingLL(self, value):
+        t1 = self.head
+        prev = t1
+        if t1.data == value:
+            self.head = t1.next
+        while t1.next != None:
+            if t1.data == value:
+                prev.next = t1.next
+                break
+            else:
+                prev = t1
+                t1 = t1.next
+        if t1.data == value:
+            prev.next = None
+
     def printLL(self):
         t1 = self.head
         while t1.next != None:
@@ -44,5 +59,9 @@ obj.insertAtEnd(20)
 obj.insertAtEnd(30)
 obj.insertAtEnd(40)
 obj.insertAtBegin(0)
+
 obj.insertInMid(50,30)
+
 obj.printLL()
+
+obj.deletingLL()
